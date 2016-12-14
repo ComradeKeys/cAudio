@@ -111,7 +111,7 @@ namespace cAudio {
         \param lFilePath Where the log file is going to be placed
 	\return A pointer to the created object, NULL if the object could not be allocated.
 	*/
-        CAUDIO_API IAudioManager* createAudioManager(bool initializeDefault = true, const char *lFilePath = "cAudioEngineLog.html");
+        CAUDIO_API IAudioManager* createAudioManager(bool initializeDefault = true);
 
 	//! Destroys an interface to a previously created Audio Manager and frees the memory allocated for it.
 	/**

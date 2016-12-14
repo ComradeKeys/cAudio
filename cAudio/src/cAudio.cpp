@@ -74,14 +74,9 @@ namespace cAudio
 #if CAUDIO_COMPILE_WITH_FILE_SOURCE == 1
 	static cFileSourceFactory FileSourceFactory;
 #endif
-  CAUDIO_API IAudioManager* createAudioManager(bool initializeDefault, const char *lFilePath)
+  CAUDIO_API IAudioManager* createAudioManager(bool initializeDefault)
 	{
 		cAudioManager* manager = CAUDIO_NEW cAudioManager;
-#if CAUDIO_COMPILE_WITH_FILE_LOG_RECEIVER == 1
-		if(FileLog == NULL)
-
-         		FileLog = new cFileLogReceiver(lFilePath);
-#endif
 		if(manager)
 		{
 			if(initializeDefault) 
@@ -113,10 +108,6 @@ namespace cAudio
 
 	CAUDIO_API void destroyAudioManager(IAudioManager* manager)
 	{
-#if CAUDIO_COMPILE_WITH_FILE_LOG_RECEIVER == 1
-	  if(FileLog != NULL)
-         	  delete FileLog;
-#endif
 		if(manager)
 		{
 #ifdef CAUDIO_COMPILE_WITH_PLUGIN_SUPPORT
